@@ -10,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Address {
+public class CustAdr {
     @Id
     long address_id;
     int hous_no;

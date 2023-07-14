@@ -55,7 +55,7 @@ public class CustomerService {
             Customer c = byId.get();
             c.setPassword(customer.getPassword());
             c.setUser_name(customer.getUser_name());
-            c.setAddress(customer.getAddress());
+            c.setCustAdr(customer.getCustAdr());
             c.setEmail(customer.getEmail());
             c.setFirstName(customer.getFirstName());
             c.setLastName(customer.getLastName());

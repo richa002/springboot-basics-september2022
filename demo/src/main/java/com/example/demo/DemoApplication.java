@@ -9,7 +9,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
@@ -34,23 +33,23 @@ public class DemoApplication implements CommandLineRunner {
 
     @Transactional
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(DemoApplication.class, args);
+       SpringApplication.run(DemoApplication.class, args);
     }
 
     @Override
     // @Transactional
     public void run(String... args) throws Exception {
-        addCart1();
+       // addCart1();
        // addCart2();
         //addCart3();
         // updateCart();
         // deleteCart();
         // fetchCart();
-        //     add2Customer();
+             add2Customer();
         //   customerService.findCustomerByFirstName("Richa");  // testing @query
 //        fetchCustomer();
 //        updateCustomer();
-        // deleteCustomer();
+         deleteCustomer();
         //   add2Orders();
         //  orderService.getOrdersOfCustomer(3L);
         //itemService.findByItemPricePerUnitLessThan(100);
@@ -159,25 +158,26 @@ public class DemoApplication implements CommandLineRunner {
     }
 
     public void add2Customer() {
-        Address address1 = Address.builder().address_id(1L).city("Brampton").country("Canada").hous_no(12).street(2).pincode("RY34NJK").build();
+
+        CustAdr custAdr1 = CustAdr.builder().address_id(1L).city("Brampton").country("Canada").hous_no(12).street(2).pincode("RY34NJK").build();
         Customer customer1 = Customer.builder().customerId(1L)
-                .address(address1)
+                .custAdr(custAdr1)
                 .email("abc@gmail.com")
                 .firstName("Richa")
                 .lastName("Luthra")
                 .password("12345634").phone("+16576156757").user_name("richa002").build();
 
-        Address address2 = Address.builder().address_id(2L).city("Brampton").country("Canada").hous_no(100).street(12).pincode("LLJKKA56").build();
+        CustAdr custAdr2 = CustAdr.builder().address_id(2L).city("Brampton").country("Canada").hous_no(100).street(12).pincode("LLJKKA56").build();
         Customer customer2 = Customer.builder().customerId(2L)
-                .address(address2)
+                .custAdr(custAdr2)
                 .email("XYZ@gmail.com")
                 .firstName("Richa")
                 .lastName("Tanwar")
                 .password("789896").phone("+789269789479").user_name("richaKT").build();
 
-        Address address3 = Address.builder().address_id(3L).city("Delhi").country("India").hous_no(122).street(10).pincode("110032").build();
+        CustAdr custAdr3 = CustAdr.builder().address_id(3L).city("Delhi").country("India").hous_no(122).street(10).pincode("110032").build();
         Customer customer3 = Customer.builder().customerId(3L)
-                .address(address3)
+                .custAdr(custAdr3)
                 .email("hkj@gmail.com")
                 .firstName("Neha")
                 .lastName("km")
@@ -191,10 +191,10 @@ public class DemoApplication implements CommandLineRunner {
     }
 
     public void updateCustomer() {
-        Address address = Address.builder().city("Brampton").country("Canada").hous_no(12).street(2).pincode("RY34NJK").build();
+        CustAdr custAdr = CustAdr.builder().city("Brampton").country("Canada").hous_no(12).street(2).pincode("RY34NJK").build();
 
         Customer customer = Customer.builder().customerId(1l)
-                .address(address)
+                .custAdr(custAdr)
                 .email("abcd@gmail.com")
                 .firstName("Richa")
                 .lastName("Luthra")

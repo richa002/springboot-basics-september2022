@@ -19,8 +19,7 @@ public class Cart {
     @Id
 //    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "cart_id", nullable = false)
-    long cartId
-            ;
+    long cartId;
 
     @Column(name = "cart_last_updated_on", nullable = false)
     LocalDateTime cartLastUpdatedOn;
